@@ -1,5 +1,8 @@
 # **Qwen Image HPC – Diffusion**
 
+> [!Note]
+Try Demo Here : https://huggingface.co/spaces/prithivMLmods/Qwen-Image
+
 ## Overview
 
 **Qwen Image HPC** is a Gradio web application for text-to-image generation using the Qwen/Qwen-Image diffusion model. It features flexible image generation controls, streamlined UI, easy batching, example prompts, and robust backend support for high-performance computing environments with GPU acceleration.
