@@ -5,3 +5,4 @@ git+https://github.com/huggingface/peft.git
 huggingface-hub
 sentencepiece
 safetensors
+gradio
