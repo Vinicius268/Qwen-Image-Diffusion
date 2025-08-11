@@ -9,6 +9,7 @@ from typing import Union, List, Optional
 import numpy as np
 import time
 import zipfile
+import os
 
 # Description for the app
 DESCRIPTION = """## Qwen Image Hpc/."""
@@ -29,7 +30,9 @@ MAX_IMAGE_SIZE = 2048
 
 # Load Qwen/Qwen-Image pipeline
 dtype = torch.bfloat16
-device = "cuda" if torch.cuda.is_available() else "cpu"
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+# --- Model Loading ---
 pipe_qwen = DiffusionPipeline.from_pretrained("Qwen/Qwen-Image", torch_dtype=dtype).to(device)
 
 # Aspect ratios
@@ -42,7 +45,7 @@ aspect_ratios = {
 }
 
 # Generation function for Qwen/Qwen-Image
-@spaces.GPU
+@spaces.GPU(duration=120)
 def generate_qwen(
     prompt: str,
     negative_prompt: str = "",
@@ -89,7 +92,7 @@ def generate_qwen(
     return image_paths, seed, f"{duration:.2f}", zip_path
 
 # Wrapper function to handle UI logic
-@spaces.GPU
+@spaces.GPU(duration=120)
 def generate(
     prompt: str,
     negative_prompt: str,
@@ -121,11 +124,12 @@ def generate(
 
 # Examples
 examples = [
+    "A decadent slice of layered chocolate cake on a ceramic plate with a drizzle of chocolate syrup and powdered sugar dusted on top. photographed from a slightly low angle with high resolution, natural soft lighting, rich contrast, shallow depth of field, and professional color grading to highlight the dessert’s textures --ar 85:128 --v 6.0 --style raw",
+    "A beautifully decorated round chocolate birthday cake with rich chocolate frosting and elegant piping, topped with the name 'Qwen' written in white icing. placed on a wooden cake stand with scattered chocolate shavings around, softly lit with natural light, high resolution, professional food photography, clean background, no branding --ar 85:128 --v 6.0 --style raw",
     "Realistic still life photography style: A single, fresh apple, resting on a clean, soft-textured surface. The apple is slightly off-center, softly backlit to highlight its natural gloss and subtle color gradients—deep crimson red blending into light golden hues. Fine details such as small blemishes, dew drops, and a few light highlights enhance its lifelike appearance. A shallow depth of field gently blurs the neutral background, drawing full attention to the apple. Hyper-detailed 8K resolution, studio lighting, photorealistic render, emphasizing texture and form.",
     "一幅精致细腻的工笔画，画面中心是一株蓬勃生长的红色牡丹，花朵繁茂，既有盛开的硕大花瓣，也有含苞待放的花蕾，层次丰富，色彩艳丽而不失典雅。牡丹枝叶舒展，叶片浓绿饱满，脉络清晰可见，与红花相映成趣。一只蓝紫色蝴蝶仿佛被画中花朵吸引，停驻在画面中央的一朵盛开牡丹上，流连忘返，蝶翼轻展，细节逼真，仿佛随时会随风飞舞。整幅画作笔触工整严谨，色彩浓郁鲜明，展现出中国传统工笔画的精妙与神韵，画面充满生机与灵动之感。",
     "A young girl wearing school uniform stands in a classroom, writing on a chalkboard. The text Introducing Qwen-Image, a foundational image generation model that excels in complex text rendering and precise image editing appears in neat white chalk at the center of the blackboard. Soft natural light filters through windows, casting gentle shadows. The scene is rendered in a realistic photography style with fine details, shallow depth of field, and warm tones. The girl's focused expression and chalk dust in the air add dynamism. Background elements include desks and educational posters, subtly blurred to emphasize the central action. Ultra-detailed 32K resolution, DSLR-quality, soft bokeh effect, documentary-style composition",
-    "手绘风格的水循环示意图，整体画面呈现出一幅生动形象的水循环过程图解。画面中央是一片起伏的山脉和山谷，山谷中流淌着一条清澈的河流，河流最终汇入一片广阔的海洋。山体和陆地上绘制有绿色植被。画面下方为地下水层，用蓝色渐变色块表现，与地表水形成层次分明的空间关系。太阳位于画面右上角，促使地表水蒸发，用上升的曲线箭头表示蒸发过程。云朵漂浮在空中，由白色棉絮状绘制而成，部分云层厚重，表示水汽凝结成雨，用向下箭头连接表示降雨过程。雨水以蓝色线条和点状符号表示，从云中落下，补充河流与地下水。整幅图以卡通手绘风格呈现，线条柔和，色彩明亮，标注清晰。背景为浅黄色纸张质感，带有轻微的手绘纹理。",
-    "A capybara wearing a suit, holding a sign, that reads Hello World"
+    "手绘风格的水循环示意图，整体画面呈现出一幅生动形象的水循环过程图解。画面中央是一片起伏的山脉和山谷，山谷中流淌着一条清澈的河流，河流最终汇入一片广阔的海洋。山体和陆地上绘制有绿色植被。画面下方为地下水层，用蓝色渐变色块表现，与地表水形成层次分明的空间关系。太阳位于画面右上角，促使地表水蒸发，用上升的曲线箭头表示蒸发过程。云朵漂浮在空中，由白色棉絮状绘制而成，部分云层厚重，表示水汽凝结成雨，用向下箭头连接表示降雨过程。雨水以蓝色线条和点状符号表示，从云中落下，补充河流与地下水。整幅图以卡通手绘风格呈现，线条柔和，色彩明亮，标注清晰。背景为浅黄色纸张质感，带有轻微的手绘纹理。"
 ]
 
 css = '''
@@ -149,7 +153,7 @@ with gr.Blocks(css=css, theme="bethecloud/storj_theme") as demo:
             label="Prompt",
             show_label=False,
             max_lines=1,
-            placeholder="Enter your prompt",
+            placeholder="✦︎ Enter your prompt",
             container=False,
         )
         run_button = gr.Button("Run", scale=0, variant="primary")
@@ -164,14 +168,15 @@ with gr.Blocks(css=css, theme="bethecloud/storj_theme") as demo:
     with gr.Accordion("Additional Options", open=False):
         use_negative_prompt = gr.Checkbox(
             label="Use negative prompt",
-            value=False,
+            value=True,
             visible=True
         )
         negative_prompt = gr.Text(
             label="Negative prompt",
             max_lines=1,
             placeholder="Enter a negative prompt",
-            visible=False,
+            value="text, watermark, copyright, blurry, low resolution",
+            visible=True,
         )
         seed = gr.Slider(
             label="Seed",
@@ -273,4 +278,4 @@ with gr.Blocks(css=css, theme="bethecloud/storj_theme") as demo:
     )
 
 if __name__ == "__main__":
-    demo.queue(max_size=50).launch(mcp_server=True, ssr_mode=False, show_error=True)
+    demo.queue(max_size=50).launch(share=False, mcp_server=True, ssr_mode=False, show_error=True)
